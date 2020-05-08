@@ -29,7 +29,7 @@ main(int argc, char *argv[])
         // printf(1, "touch: open %s\n", argv[1]);
 
         if(fstat(fd, &st) < 0){
-            printf(2, "ls: cannot stat\n");
+            printf(2, "touch: cannot stat\n");
         }
         int size = st.size;
         // printf(1, "touch: size %d\n", size);
