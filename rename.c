@@ -193,6 +193,8 @@ main(int argc, char *argv[])
                             printf(1, "rename: cannot write %s\n", filename);
                             exit();
                         }
+
+                        memset(filename, '\0', sizeof(filename));
                     }
                 }
             }
