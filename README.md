@@ -2,13 +2,13 @@
 Final Project Sistem Operasi
 Membuat CLI pada xv6 menggunakan C.
 
-| Commands      | Status        |
-| ------------- |-------------- |
-| touch         | :heavy_check_mark: |
-| rename        | :x:               | 
-| chmod         | :x:               |
-| mv(biasa, * ) | :heavy_check_mark: |
-| tail          | :heavy_check_mark: |
+| Commands      | Status                    |
+| ------------- |-------------------------- |
+| touch         | :heavy_check_mark:        |
+| rename        | :heavy_check_mark: (half) | 
+| chmod         | :x:                       |
+| mv(biasa, * ) | :heavy_check_mark:        |
+| tail          | :heavy_check_mark:        |
 
 Penggunaan command :
 - touch : perintah ini digunakan untuk mengganti timestamp sebuah file ke waktu sekarang.
