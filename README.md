@@ -11,7 +11,10 @@ Membuat CLI pada xv6 menggunakan C.
 | tail          | :heavy_check_mark: |
 
 Penggunaan command :
-- touch : Perintah ini digunakan untuk mengganti timestamp sebuah file ke waktu sekarang.
+⋅⋅* touch 
+
+⋅⋅⋅ Perintah ini digunakan untuk mengganti timestamp sebuah file ke waktu sekarang.
+
 - rename : Mengubah nama file.
     Contoh :
     rename ‘s/.prog/.prg/’ * .prog -> mengganti nama semua file dengan ekstensi .prog
