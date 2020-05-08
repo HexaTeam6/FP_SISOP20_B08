@@ -205,10 +205,138 @@ main(int argc, char *argv[])
                 printf(1, "rename: feature has not been fully enabled.\n");
             }
             else if(opt == 4){
-                printf(1, "rename: feature has not been fully enabled.\n");
+                int i = 0, count = 0, min = strlen(ext), bc = strlen(ext) - 1;
+                char temp[100];
+                strcpy(temp, de.name);
+                // printf(1, "rename: temp %s\n", temp);
+                if(strlen(temp) <= strlen(ext)){
+                    continue;
+                }
+                else
+                {
+                    for(i = strlen(temp) - 1; i >= strlen(temp) - min; i--){
+                        if(temp[i] == ext[bc]){
+                            count++;
+                        }
+                        bc--;
+                    }
+                    if(count == min){
+                        printf(1, "rename: file detected %s\n", de.name);
+
+                        char filename[1000];
+                        strcpy(filename, de.name);
+
+                        int j;
+                        for(j = 0; j < (strlen(de.name) - strlen(ext)); j++){
+                            if(filename[j] >= 97 && filename[j] <= 122){
+                                filename[j] = filename[j] - 32;
+                            }
+                        }
+                        printf(1, "rename: new filename %s\n", filename);
+
+                        struct stat st;
+                        
+                        int fd, fd1;
+                        if((fd = open(de.name, O_RDWR)) < 0) {
+                            printf(1, "rename: cannot open %s\n", argv[1]);
+                            exit();
+                        }
+                        if(fstat(fd, &st) < 0){
+                            printf(2, "rename: cannot stat\n");
+                        }
+                        int size = st.size;
+
+                        buf = (char*) malloc(size * sizeof(char));
+
+                        int n;
+                        if((n = read(fd, buf, size)) < 0){
+                            printf(1, "rename: cannot read %s\n", filename);
+                            exit();
+                        }
+
+                        unlink(de.name);
+
+                        if((fd1 = open(filename, O_CREATE | O_RDWR)) < 0) {
+                            printf(1, "rename: cannot open %s\n", filename);
+                            exit();
+                        }
+
+                        int c;
+                        if((c = write(fd1, buf, size)) < 0) {
+                            printf(1, "rename: cannot write %s\n", filename);
+                            exit();
+                        }
+
+                        memset(filename, '\0', sizeof(filename));
+                    }
+                }
             }
             else if(opt == 5){
-                printf(1, "rename: feature has not been fully enabled.\n");
+                int i = 0, count = 0, min = strlen(ext), bc = strlen(ext) - 1;
+                char temp[100];
+                strcpy(temp, de.name);
+                // printf(1, "rename: temp %s\n", temp);
+                if(strlen(temp) <= strlen(ext)){
+                    continue;
+                }
+                else
+                {
+                    for(i = strlen(temp) - 1; i >= strlen(temp) - min; i--){
+                        if(temp[i] == ext[bc]){
+                            count++;
+                        }
+                        bc--;
+                    }
+                    if(count == min){
+                        printf(1, "rename: file detected %s\n", de.name);
+
+                        char filename[1000];
+                        strcpy(filename, de.name);
+
+                        int j;
+                        for(j = 0; j < (strlen(de.name) - strlen(ext)); j++){
+                            if(filename[j] >= 65 && filename[j] <= 90){
+                                filename[j] = filename[j] + 32;
+                            }
+                        }
+                        printf(1, "rename: new filename %s\n", filename);
+
+                        struct stat st;
+                        
+                        int fd, fd1;
+                        if((fd = open(de.name, O_RDWR)) < 0) {
+                            printf(1, "rename: cannot open %s\n", argv[1]);
+                            exit();
+                        }
+                        if(fstat(fd, &st) < 0){
+                            printf(2, "rename: cannot stat\n");
+                        }
+                        int size = st.size;
+
+                        buf = (char*) malloc(size * sizeof(char));
+
+                        int n;
+                        if((n = read(fd, buf, size)) < 0){
+                            printf(1, "rename: cannot read %s\n", filename);
+                            exit();
+                        }
+
+                        unlink(de.name);
+
+                        if((fd1 = open(filename, O_CREATE | O_RDWR)) < 0) {
+                            printf(1, "rename: cannot open %s\n", filename);
+                            exit();
+                        }
+
+                        int c;
+                        if((c = write(fd1, buf, size)) < 0) {
+                            printf(1, "rename: cannot write %s\n", filename);
+                            exit();
+                        }
+
+                        memset(filename, '\0', sizeof(filename));
+                    }
+                }
             }
             else{
                 printf(1, "rename: no option\n");
