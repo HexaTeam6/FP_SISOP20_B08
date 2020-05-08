@@ -11,11 +11,8 @@ Membuat CLI pada xv6 menggunakan C.
 | tail          | :heavy_check_mark: |
 
 Penggunaan command :
-⋅⋅* touch 
-
-⋅⋅⋅ Perintah ini digunakan untuk mengganti timestamp sebuah file ke waktu sekarang.
-
-- rename : Mengubah nama file.
+- touch : perintah ini digunakan untuk mengganti timestamp sebuah file ke waktu sekarang.
+- rename : perintah ini digunakan untuk mengubah nama file.
     Contoh :
     rename ‘s/.prog/.prg/’ * .prog -> mengganti nama semua file dengan ekstensi .prog
     menjadi .prg’
@@ -27,7 +24,7 @@ Penggunaan command :
     pada semua nama file dengan ekstensi .c
     rename ‘y/a-z/A-Z/’ * .prg -> menganti semua huruf kecil menjadi huruf besar pada
     semua nama file dengan ekstensi .prg (Translations).
-- chmod : Mengubah file permission suatu file atau directory.
+- chmod : perintah ini digunakan untuk mengubah file permission suatu file atau directory.
     r = 4
     w = 2
     x = 1
